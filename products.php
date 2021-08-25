@@ -1,12 +1,8 @@
 <?php
-//require_once 'elements/auth.php';
-//var_dump(is_connected());
-var_dump(session_id());
-
-
 require "./elements/conect_BDD.php";
 require "./elements/header.php";
 $page = $_GET['page'] ?? 1;
+
 if(!filter_var($page,FILTER_VALIDATE_INT)){
   throw new Exception("Numéro de la page invalide ! ");
 }
@@ -35,13 +31,9 @@ $offset = $in_page * ($current_page - 1);
 
 try {
   
-    // $req_cat = $db->query("SELECT DISTINCT cat_nom ,cat_id  FROM produits JOIN categories ON cat_id = pro_cat_id");
-    // $all_cat = $req->fetchAll();
-  
- 
   if (isset($_POST['recherche'])) {
     $reherche = $_POST['recherche'];
-    $req = $db->prepare("SELECT * FROM produits WHERE pro_libelle LIKE '$reherche%' OR   limit $in_page OFFSET $offset");
+    $req = $db->prepare("SELECT * FROM produits WHERE pro_libelle LIKE '$reherche%' limit $in_page OFFSET $offset");
     $req->execute();
   } else {
     $req = $db->prepare("SELECT * FROM produits limit $in_page OFFSET $offset");
@@ -86,11 +78,11 @@ if ($error) {
               <div>
                 <h5 id="libelle" class="text-centre"><?= $val->pro_libelle ?></h5>
                 <br>
-                <p id="prix" class="text-centre"><?= $val->pro_prix ?></p>
-                <?php // if (verify()):
+                <p id="prix" class="text-centre"><?= $val->pro_prix . " €" ?></p>
+                <?php  if (verify()):
                 ?>
                 <button id="btn" class="btn btn-outline-success" value="<?= $val->pro_id ?>">Ajouter</button>
-                <?php // endif; 
+                <?php  endif; 
                 ?>
               </div>
             </div>
@@ -102,7 +94,7 @@ if ($error) {
       <?php endif ?>
 
     </div>
-    <?php //if (verify()):
+    <?php if (verify()):
     ?>
     <div id="panier" class="container col-3 border border-info">
       <h5>votre panier:</h5>
@@ -112,11 +104,11 @@ if ($error) {
         </tbody>
 
       </table>
-      <p id="total"></p>
+    
       <button id="delete" class="btn btn-outline-danger" value="<?= $val->pro_id ?>">supprimer</button>
 
     </div>
-    <?php //endif; 
+    <?php endif; 
     ?>
   </div>
   <div class="d-flex justify-content-between my-3 ">

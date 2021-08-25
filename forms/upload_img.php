@@ -37,7 +37,10 @@ if (isset($_POST["submit"])) {
             } else {
             
                 $fileNameNew = $id . "." . $fileActualExt;
-                $fileDestination = '../jarditou_photos/' . $fileNameNew;
+                $fileDestination = dirname(__DIR__).DIRECTORY_SEPARATOR."jarditou_photos".DIRECTORY_SEPARATOR."$fileNameNew"; 
+                if(isset($fileDestination)){
+                    unlink($fileDestination);
+                }
                 move_uploaded_file($fileTmpName, $fileDestination);
                 header("Location:../tableau.php?upload=success ");
             }

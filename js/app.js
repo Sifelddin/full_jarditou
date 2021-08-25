@@ -3,7 +3,7 @@ const prices = document.querySelectorAll('#prix');
 const libelles = document.querySelectorAll('#libelle');
 const imgs = document.querySelectorAll('#p_img');
 const deleteBtn = document.querySelector('#delete');
-const texx_total = document.querySelector('#total');
+
 const produits = [];
 
 for(let i = 0 ; i < btns.length; i++){
@@ -17,7 +17,7 @@ for(let i = 0 ; i < btns.length; i++){
 
 let quantity = 1;
 let result = "";
-let total = 0;
+
 
 
 
@@ -34,20 +34,19 @@ btns.forEach(btn => btn.addEventListener('click',(e)=>{
     
     produits.forEach(item =>{
         if( item.index === target){
-          arr.push(item.price)
-            total += parseInt(item.price,10)
+          arr.push(item.price)  
             result +=`
             <tr id="tr">
            <td><img style="max-width: 50px;" class="img-responsive img-fluid" src="${item.img}" alt=""></td>
-            <td><small>${item.price} €</small></td>
+            <td><small>${item.price} </small></td>
             <td><small>${item.libelle}</small></td> 
             <td>${quantity}</td>   
             </tr> `    
         }
-        texx_total.innerHTML = "Total prix :" + total + "€";  
+        
     }) 
    
-  console.log(arr);
+ 
     tbody.innerHTML = result;
     
        
@@ -79,7 +78,7 @@ if (newarr.length === 0) {
       
       
  
-   texx_total.innerHTML = "Total prix :" + new_total + "€";  
+   
 })
 
     tbody.innerHTML = result;  

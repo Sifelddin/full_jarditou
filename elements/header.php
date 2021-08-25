@@ -6,6 +6,7 @@ require_once 'functions.php';
 date_default_timezone_set("Europe/Paris");
 
 $forms = '/forms/';
+$products = '/products.php/';
 $self_path = $_SERVER["PHP_SELF"];
 
 
@@ -20,7 +21,7 @@ $self_path = $_SERVER["PHP_SELF"];
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>PAGE ACCUEIL</title>
-   <?php if ($self_path === "/PDO/products.php") : ?>
+   <?php if (check_url($products,$self_path)) : ?>
   <script src="js/app.js" defer></script>
   <?php endif; ?> 
 </head>
