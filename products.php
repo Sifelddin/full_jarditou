@@ -50,8 +50,8 @@ if ($error) {
 ?>
 
 <div class="container ">
-  <div class="d-flex justify-content-between py-5 ">
-    <h4>tous les produits</h4>
+  <div class="d-flex justify-content-around py-5 ">
+    <h4>Tous les produits :</h4>
     <form action="" method="POST" class="form-inline mt-2 mt-md-0">
       <input class="form-control mr-sm-2" type="text" name="recherche" placeholder="nom du produit (libellé)" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>

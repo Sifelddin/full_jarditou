@@ -28,7 +28,7 @@ $self_path = $_SERVER["PHP_SELF"];
 
 <body >
   <div class="container-fluid">
-    <div class="d-lg-flex justify-content-between align-items-center  d-none ">
+    <div class="d-lg-flex justify-content-between align-items-center ">
       <img style="max-width: 180px;" src="<?php if (check_url($forms, $self_path)) {
                                             echo "../";
                                           } ?>jarditou_photos/jarditou_logo.jpg" alt="jarditou_logo" title="jarditou_logo">
@@ -50,7 +50,7 @@ $self_path = $_SERVER["PHP_SELF"];
           <li class="nav-item">
             <a class="nav-link text-muted" href="<?php if (check_url($forms, $self_path)) {
                                                     echo " ../";
-                                                  } ?>products.php">list-products</a>
+                                                  } ?>products.php">produits</a>
           </li>
         </ul>
         <ul class="navbar-nav mr-5">
@@ -70,12 +70,12 @@ $self_path = $_SERVER["PHP_SELF"];
             <li class="nav-item">
               <a class="nav-link text-muted" href="<?php if (check_url($forms, $self_path)) {
                                                       echo " ../";
-                                                    } ?>login.php">Signe in</a>
+                                                    } ?>login.php">Sign in</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-muted" href="<?php if (check_url($forms, $self_path)) {
                                                       echo " ../";
-                                                    } ?>sign_up.php">Signe up</a>
+                                                    } ?>sign_up.php">Sign up</a>
             </li>
           <?php else : ?>
             <li class="nav-item">

@@ -6,6 +6,10 @@ require '../elements/conect_BDD.php';
 if(isset($_POST['submit'])){
    $password = $_POST['password'] ;
    $email = $_POST['email'];
+   if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+      header('Location:../login.php?error=email');
+      exit;
+  }
 
 
    $req = $db->prepare("SELECT * FROM users where email = '$email' ");
@@ -21,16 +25,16 @@ if(!empty($user)){
    
     header('Location:../products.php?login=success');
        
-}else{
+   }else{
     
-    header('Location:../forms/login.php?error=password');
+    header('Location:../login.php?error=password');
     exit;
    }
    
-}else{
-    header('Location:../forms/login.php?error=email');
+   }else{
+    header('Location:../login.php?error=emailval');
    exit;
-}
+   }
 
 
 }

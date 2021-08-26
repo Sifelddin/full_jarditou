@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
     ]);
 
     $_SESSION['login'] = $email;
-    header('Location:../tableau.php?success=mdpchange');
+    header('Location:../tableau.php?success=mdp-change');
 
     
 }

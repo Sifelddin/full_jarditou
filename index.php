@@ -5,7 +5,7 @@ require "elements/header.php";
 
 
 
-   <div class="container-fluid ">
+   <div class="container ">
 
 
        <div class="row">

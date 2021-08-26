@@ -1,4 +1,9 @@
 <?php
+$error = null;
+if(isset($_GET['error'])){
+  $error = $_GET['error'];
+  
+}
 require '../elements/header.php';
 ?>
 <!DOCTYPE html>
@@ -13,21 +18,30 @@ require '../elements/header.php';
 </head>
 <body>
     <div class="container">
-   <h3>créer un nouveau mot de pass</h3> 
+      <br>
+   <h3> Nouveau mot de pass:</h3> 
 <br>
 <form action="../scripts/newPw_script.php" method="POST">
 <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Votre email">
+    <?php if($error !== null && $error === "email") :?> 
+            <small  class="text-danger">Adresse email doit être en bon format!</small >
+      <?php endif; ?>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1"> nouveau mot de pass:</label>
-    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="exampleInputPassword1"> Nouveau mot de pass:</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Nouveau mot de pass (minimum 8 caractères)">
+    <?php if($error !== null && $error === "password") :?> 
+      <small  class="text-danger"> Mot de pass Confirmation !</small >
+      <?php endif; ?>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">  confirmation mot de pass:</label>
-    <input type="password" name="password-confirm" class="form-control" id="exampleInputPassword1" placeholder="Password-confirm">
+    <label for="exampleInputPassword1">  Confirmation (mot de pass):</label>
+    <input type="password" name="password-confirm" class="form-control" id="exampleInputPassword1" >
+    <?php if($error !== null && $error === "password-conformation") :?> 
+      <small  class="text-danger"> Mot de pass Confirmation !</small >
+      <?php endif; ?>
   </div>
   <br>
   <button type="submit" name="submit" class="btn btn-primary">Envoyer</button>

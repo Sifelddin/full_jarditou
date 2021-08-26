@@ -11,27 +11,27 @@ if(isset($_POST['submit'])){
   $password = $_POST["password"];
   $password_conf = $_POST["password-confirm"];
 
-    if( preg_match($nameRegx, $nom) === 0){
-    header('Location:../Contact.php?error=nom');
+    if( preg_match($nameRegx, $nom) === 0 && strlen($nom) > 2 ){
+    header('Location:../sign_up.php?error=nom');
     exit;
     }
-    if( preg_match($nameRegx, $prenom) === 0){
-    header('Location:../Contact.php?error=nom');
+    if( preg_match($nameRegx, $prenom) === 0 && strlen($prenom) > 2){
+    header('Location:../sign_up.php?error=prenom');
     exit;
     }
 
 
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        header('Location:../Contact.php?error=email');
+        header('Location:../sign_up.php?error=email');
         exit;
     }
 
     if(strlen($password) < 8 ){
-        header('Location:../Contact.php?error=password');
+        header('Location:../sign_up.php?error=password');
         exit;
     }
     if($password !== $password_conf){
-        header('Location:../Contact.php?error=password-conformation');
+        header('Location:../sign_up.php?error=password-conformation');
         exit;
     }else{
 
