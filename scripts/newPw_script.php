@@ -6,6 +6,17 @@ require '../elements/conect_BDD.php';
 
 if(isset($_POST['submit'])){
 
+    $selector = bin2hex(random_bytes(8));
+    $token = random_bytes(32);
+
+    $url = null;
+    
+
+    var_dump($selector,$token);
+    die;
+
+
+
     $email = $_POST['email'];
     $password = $_POST["password"];
     $password_conf = $_POST["password-confirm"];
@@ -41,6 +52,9 @@ if(isset($_POST['submit'])){
     header('Location:../tableau.php?success=mdp-change');
 
     
+}else{
+    header('Location:../forms/newPw.php?error=email');
+    exit;
 }
 
 
