@@ -1,0 +1,5 @@
+mysql://bdcd429d728f8e:c7e1ebfb@eu-cdbr-west-01.cleardb.com/heroku_6725eeabe00948d?reconnect=true
+
+UserN:bdcd429d728f8e
+pw:c7e1ebfb
+host:eu-cdbr-west-01.cleardb.com
