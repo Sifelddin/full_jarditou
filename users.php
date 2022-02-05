@@ -57,7 +57,7 @@ try {
                         <?php foreach ($objs_dai as  $val) : ?>
                             <tr class="table-warning text-center ">
                             
-                                <td class="align-middle"><?= $val->id ?></td>
+                                <td class="align-middle"><?= $val->user_id ?></td>
                                 <td class="align-middle"><?= $val->nom ?></td>
                                 <td class="align-middle"><?= $val->prenom ?></td>
                                 <td class="align-middle"><?= $val->email ?></td>
